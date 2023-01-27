@@ -9,7 +9,7 @@ export default function Todos() {
       <Card className='myForm'>
         <AddTodoForm />
       </Card>
-      <Card className='mt-4'>
+      <Card className='mt-4 myForm'>
         <Todolist />
       </Card>
     </Container>

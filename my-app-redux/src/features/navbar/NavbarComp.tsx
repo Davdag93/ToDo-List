@@ -7,7 +7,7 @@ function NavbarComp() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">ToDo App</Navbar.Brand>
+        <Link to="/" className='nav-link logo'>ToDo App</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

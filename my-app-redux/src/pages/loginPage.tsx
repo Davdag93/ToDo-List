@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom'
-import { Button, Card, Container, Form } from 'react-bootstrap'
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 import { useAppDispatch } from '../app/hooks';
 import { getUserLogin } from '../features/login/userLoginSlice';
 
@@ -24,8 +24,10 @@ export default function LoginPage() {
 }
 
   return (
-    <Container style={{width: "600px"}}>
-    <Card className='my-5'>
+    <div className='sfondoLog'>
+    <Container className='d-flex justify-content-center'>
+    <Col xs={6}>
+    <Card className='my-5 pb-4 myFormLog'>
         <Card.Body className='text-center'>
             <h1 className='my-3 text-center'>Login</h1>
             <Form>
@@ -35,10 +37,14 @@ export default function LoginPage() {
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Control type="password" placeholder="Password" ref={inputPassword} />
             </Form.Group> 
-            <Button variant="primary" onClick={loginUser}>Login</Button>
+            <Col xs={6} className="buttonLog">
+            <Button variant="primary" className='form-control' onClick={loginUser}>Login</Button>
+            </Col>
             </Form>
         </Card.Body>
     </Card>
+    </Col>
     </Container>
+    </div>
   )
 }

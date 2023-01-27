@@ -12,16 +12,10 @@
   ],
   "todos": [
     {
-      "txt": " blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident",
+      "txt": "Comprare il pane",
       "completed": "",
       "data": "27/01/2023",
-      "id": 11
-    },
-    {
-      "txt": "andare a fare la spesa",
-      "completed": "",
-      "data": "27/01/2023",
-      "id": 12
+      "id": 1
     }
   ]
 }

@@ -7,17 +7,37 @@
 }
 
 .sfondo {
-  position: relative;
-  top: 0;
   width: 100%;
   height: 92vh;
   background-image: url("../src/img/bosco.jpg");
   background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: 100% 100%;
-  padding-top: 4rem;
+  background-position: center center;
+  background-size: 100% auto;
+  padding-top: 2rem;
 }
 
 .myForm {
-  background-color: rgba(255,255,255,0.3) !important;
+  background-color: rgba(255,255,255,0.5) !important;
+}
+
+.myFormLog {
+  background-color: rgba(255,255,255,0.8) !important;
+}
+
+.sfondoLog {
+  width: 100%;
+  height: 92vh;
+  background-image: url("../src/img/felce.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: auto auto;
+  padding-top: 4rem;
+}
+
+.logo {
+  color: #fff !important;
+}
+
+.buttonLog {
+  margin: 0 auto;
 }

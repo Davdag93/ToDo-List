@@ -27,7 +27,7 @@ export default function Todolist() {
           </Alert>}
         <ListGroup variant="flush">
           {todos.map((t: Todo, i: number) => (
-            <ListGroup.Item key={i} className={'d-flex justify-content-between '}>
+            <ListGroup.Item key={i} className={'d-flex justify-content-between myForm'}>
               <span className='date'>{t.data}</span>
             <Col xs={7}>
               <span className={t.completed}>{t.txt}</span>
