@@ -17,8 +17,7 @@ export default function LoginPage() {
             email: inputEmail.current?.value,
             password: inputPassword.current?.value
         }
-        console.log(obj)
-        dispatch(getUserLogin(obj))
+        dispatch(getUserLogin(obj));
         navigate('/todos'); 
     }
 }
@@ -29,7 +28,7 @@ export default function LoginPage() {
     <Col xs={6}>
     <Card className='my-5 pb-4 myFormLog'>
         <Card.Body className='text-center'>
-            <h1 className='my-3 text-center'>Login</h1>
+            <p className='my-3 text-center txtLogReg'>Login</p>
             <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Control type="email" placeholder="Enter email" ref={inputEmail} />

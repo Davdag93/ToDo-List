@@ -7,15 +7,15 @@ function NavbarComp() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Link to="/" className='nav-link logo'>ToDo App</Link>
+        <Link to="/" className='nav-link logo'>List App</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Link to="/todos" className='nav-link'>Todo</Link>
           </Nav>
           <Nav>
-            <Link to="/Login" className='nav-link'>Login</Link>
-            <Link to="/Register" className='nav-link'>Register</Link> 
+            <Link to="/login" className='nav-link'>Login</Link>
+            <Link to="/register" className='nav-link'>Register</Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>

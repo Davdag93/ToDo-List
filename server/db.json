@@ -1,18 +1,27 @@
 {
   "users": [
     {
-      "email": "admin@example.com",
-      "password": "$2a$10$KwNNDxIQ/lF7Lgn1Xhce3.vabBuB2YltcK01gQ1nidGszm1.th9f6",
-      "firstname": "Barclay",
-      "lastname": "Barron",
-      "role": "Admin",
-      "age": 55,
-      "id": 1
+      "email": "davide-d.agostino@outlook.com",
+      "password": "$2a$10$pVOZ5prdbxKTzWnCyIaiNeQ/UwLHI.iiPdq.zTFUkqY48J7igBdxK",
+      "firstName": "Davide",
+      "lastName": "D'Agostino",
+      "city": "PALERMO",
+      "age": "29",
+      "id": 2
+    },
+    {
+      "email": "zugemasih@mailinator.com",
+      "password": "$2a$10$QIQE2RVItoMjUYYwzPBCVu26fNDRI39B/hxKKRquPj0joLo.4omuK",
+      "firstName": "Henry",
+      "lastName": "Vega",
+      "city": "Cum temporibus aliqu",
+      "age": "55",
+      "id": 3
     }
   ],
   "todos": [
     {
-      "txt": "Comprare il pane",
+      "txt": "Example",
       "completed": "",
       "data": "27/01/2023",
       "id": 1

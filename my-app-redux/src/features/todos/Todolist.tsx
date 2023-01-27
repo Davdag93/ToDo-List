@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
-import { Card, Alert, ListGroup, Button, Col } from 'react-bootstrap';
+import { Card, Alert, ListGroup, Button, Col, Placeholder } from 'react-bootstrap';
 import { TrashFill, CheckSquareFill } from 'react-bootstrap-icons';
-import Spinner from 'react-bootstrap/esm/Spinner';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { completeTodo, deleteTodo, getAllTodos, selectError, selectLoading, selectTodolist, Todo } from './todosSlice';
 
@@ -11,7 +10,6 @@ export default function Todolist() {
 
     /* const loading = useAppSelector((state: RootState) => state.todos.loading) */
   const loading = useAppSelector(selectLoading)
-  const error = useAppSelector(selectError)
   const todos = useAppSelector(selectTodolist)
   const dispatch = useAppDispatch();
 
@@ -21,10 +19,16 @@ export default function Todolist() {
 
   return (
     <Card.Body className='text-center'>
-        {loading && <Spinner animation="grow" />}
-        {error && <Alert variant="danger" dismissible>
-          <Alert.Heading>Oh snap! {error}</Alert.Heading>
-          </Alert>}
+        {loading &&   
+        <>    
+          <Placeholder as="p" animation="glow">
+            <Placeholder xs={12} />
+          </Placeholder>
+          <Placeholder as="p" animation="wave">
+            <Placeholder xs={12} />
+          </Placeholder>
+        </>
+        }
         <ListGroup variant="flush">
           {todos.map((t: Todo, i: number) => (
             <ListGroup.Item key={i} className={'d-flex justify-content-between myForm'}>
