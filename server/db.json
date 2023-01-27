@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "email": "admin@example.com",
+      "password": "$2a$10$KwNNDxIQ/lF7Lgn1Xhce3.vabBuB2YltcK01gQ1nidGszm1.th9f6",
+      "firstname": "Barclay",
+      "lastname": "Barron",
+      "role": "Admin",
+      "age": 55,
+      "id": 1
+    }
+  ],
+  "todos": [
+    {
+      "txt": " blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident",
+      "completed": "",
+      "data": "27/01/2023",
+      "id": 11
+    },
+    {
+      "txt": "andare a fare la spesa",
+      "completed": "",
+      "data": "27/01/2023",
+      "id": 12
+    }
+  ]
+}
