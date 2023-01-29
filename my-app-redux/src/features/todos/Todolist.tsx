@@ -29,7 +29,7 @@ export default function Todolist() {
           </Placeholder>
         </>
         }
-        <ListGroup variant="flush">
+        <ListGroup variant="flush ">
           {todos.map((t: Todo, i: number) => (
             <ListGroup.Item key={i} className={'d-flex justify-content-between myForm'}>
               <span className='date'>{t.data}</span>

@@ -7,7 +7,7 @@
   font-size: small;
 }
 
-.sfondo {
+.sfondoCard {
   width: 100%;
   height: 92vh;
   background-image: url("../src/img/bosco.jpg");
@@ -37,9 +37,23 @@
   height: 100%;
   background-image: url("../src/img/felce.webp");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left center;
   background-size: auto auto;
   padding: 6rem 0;
+}
+.card-altezza {
+  max-height: 65vh;
+}
+
+.sfondoHome {
+  width: 100%;
+  height: 92vh;
+  background-image: url("../src/img/sfondoPalme.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  padding-top: 2rem;
+  color: rgb(225, 225, 225)
 }
 
 .logo {

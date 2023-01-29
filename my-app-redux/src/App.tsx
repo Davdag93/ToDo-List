@@ -7,6 +7,7 @@ import { useAppSelector } from './app/hooks';
 import { selectIsLoggedIn } from './features/login/userLoginSlice';
 import NavbarComp from './features/navbar/NavbarComp';
 import Signup from './pages/Signup';
+import Home from './pages/Home';
 
 function App() {
 
@@ -18,8 +19,8 @@ function App() {
            <NavbarComp/>
           
         <Routes>
-          <Route path='/' element={<Navigate to='/home' />} />
-          <Route path='/todos' element={isLoggedIn ? <TodosPage /> : <Navigate to='/login' />} />
+          <Route path='/' element={<Home/>} />
+          <Route path='/todos' element={<TodosPage />} /* {isLoggedIn ? <TodosPage /> : <Navigate to='/login' />} */ />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<Signup />} />
         </Routes>
