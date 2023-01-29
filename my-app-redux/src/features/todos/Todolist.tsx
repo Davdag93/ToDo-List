@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
-import { Card, Alert, ListGroup, Button, Col, Placeholder } from 'react-bootstrap';
+import { Card, ListGroup, Button, Col, Placeholder } from 'react-bootstrap';
 import { TrashFill, CheckSquareFill } from 'react-bootstrap-icons';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { completeTodo, deleteTodo, getAllTodos, selectError, selectLoading, selectTodolist, Todo } from './todosSlice';
+import { completeTodo, deleteTodo, getAllTodos, selectLoading, selectTodolist, Todo } from './todosSlice';
 
 /* const selectLoading = (state: RootState) => state.todos.loading; */
 
@@ -15,7 +15,7 @@ export default function Todolist() {
 
   useEffect(() => {
     dispatch(getAllTodos());
-  }, [])
+  },[])
 
   return (
     <Card.Body className='text-center'>

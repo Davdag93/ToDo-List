@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import { RootState } from '../../app/store';
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AppThunk, RootState } from '../../app/store';
 
 export interface User {
     id?: number,
@@ -24,6 +24,7 @@ const initialState: UserState = {
     error: undefined
 }
 
+
 export const getUserLogin = createAsyncThunk("user/getuserLogin", (obj: {email: string, password: string }) => {
     return axios.post(process.env.REACT_APP_URL_API + 'login/', obj).then( response => {
         if(response.status !== 200) throw Error(response.statusText)
@@ -31,11 +32,25 @@ export const getUserLogin = createAsyncThunk("user/getuserLogin", (obj: {email: 
     }).catch(error => {throw Error(error.message)})
 })
 
+export const setIsLoggedIn = (isLoggedIn: boolean): PayloadAction<boolean> => ({
+    type: "userLogin/setIsLoggedIn",
+    payload: isLoggedIn,
+  });
+  
+  export const logout = (): AppThunk => async (dispatch) => {
+    localStorage.removeItem("user");
+    dispatch(setIsLoggedIn(false));
+  };
+
 export const userLogin_slice = createSlice(
     {
         name: 'userLogin',
         initialState: initialState,
-        reducers: {},
+        reducers: {
+            setIsLoggedIn: (state, action) => {
+              state.isLoggedIn = action.payload;
+            },
+        },
         extraReducers: (builder) => { 
             builder
                   .addCase(getUserLogin.rejected, (state, action) => {
@@ -46,12 +61,6 @@ export const userLogin_slice = createSlice(
                     state.isLoggedIn = true
                   })
 
-                /* [getUserLogin.rejected]: (state, action) => {
-                    state.error = action.error.message},
-                [getUserLogin.fulfilled]:(state, action) => {
-                    state.user = action.payload
-                    state.isLoggedIn = true
-                }, */
         }
     }
 )
