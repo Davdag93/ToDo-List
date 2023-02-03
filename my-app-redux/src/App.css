@@ -1,48 +1,5 @@
 
-.completed {
-  text-decoration: line-through !important;
-}
-
-.date {
-  font-size: small;
-}
-
-.sfondoCard {
-  width: 100%;
-  height: 92vh; 
-  background-image: url("../src/img/sfondopage.jpeg"); 
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
-  padding-top: 2rem;
-}
-
-.myForm {
-  background-color: rgba(255,255,255,0.32) !important;
-}
-
-.myFormLog {
-  background-color: rgba(255,255,255,0.8) !important;
-}
-
-.nav-cust {
-  z-index: 1;
-}
-.sfondoLog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("../src/img/monastera.webp");
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 100% auto;
-  padding: 6rem 0;
-}
-.card-altezza {
-  max-height: 65vh;
-}
+/* Homepage */
 
 .sfondoHome {
   width: 100%;
@@ -54,37 +11,166 @@
   padding-top: 2rem;
   color: rgb(233, 227, 227)
 }
-
-
-
-.logo {
-  color: #fff !important;
-}
-
-.buttonLog {
-  margin: 0 auto;
-}
-
-.txtLogReg {
-  font-size: 2.8rem;
-  font-weight: bold;
-}
-
-.alertCustom {
-  margin-top: -12px !important;
-  padding: 5px 13px!important;
-}
-
-.privacy {
-  text-decoration: none;
-}
 .imgHome {
   width: 90%;
   height: 350px;
   border-radius: 10px;
-  background-color:rgba(255,255,255,0.1)
+  background-color:rgba(255,255,255,0.1);
+  border: 1px ridge rgb(161, 131, 79)
 }
 .imgHome img {
   width: 100%;
   height: 100%;
+}
+.str-descriptionHome {
+  padding-top: 10%;
+}
+
+.b-txt-Home {
+  color: #f39c12
+}
+.str-registerHome a {
+  text-decoration: none;
+  color: white;
+}
+.str-registerHome a:hover {
+  color: #f39c12
+}
+
+/* Todo Page */
+
+.completed {
+  text-decoration: line-through !important;
+}
+.date {
+  font-size: small;
+}
+.sfondoCard {
+  width: 100%;
+  height: 92vh; 
+  background-image: url("../src/img/sfondopage.jpeg"); 
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  padding-top: 2rem;
+}
+.card-altezza {
+  max-height: 65vh;
+}
+.myForm {
+  background-color: rgba(255,255,255,0.32) !important;
+}
+
+
+/* Login Page */
+
+.myFormLog { /*classe condivisa con Register Page*/
+  background-color: rgba(255,255,255,0.8) !important;
+}
+.sfondoLog { /*classe condivisa con Register Page*/
+  width: 100%;
+  height: 92vh;
+  background-image: url("../src/img/monastera.webp");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% auto;
+  padding-top: 5rem;
+}
+.txtLogReg { /*classe condivisa con Register Page*/
+  font-size: 2.8rem;
+  font-weight: bold;
+}
+.buttonLog {
+  margin: 0 auto;
+}
+
+
+
+/* Navbar */
+
+.nav-cust {
+  z-index: 1;
+}
+.logo {
+  color: #f0bd6b !important;
+}
+.page-todo-nav {
+  margin-left: 30px;
+}
+
+/* Register Page */
+
+.alertCustom {
+  margin-top: -12px !important;
+  margin-bottom: 8px !important;
+  padding: 2px 13px!important;
+  font-size: 12px;
+}
+.privacy {
+  text-decoration: none;
+}
+
+
+/*SMARTPHONE*/
+
+@media only screen and (max-width: 576px ) {
+  
+    /* Homepage */
+
+  .sfondoHome {
+    background-size: auto 100%;
+    padding-top: 0rem;
+    height: 79vh;
+  }
+  .imgHome {
+    width: 100%;
+    height: auto;
+  }
+  .str-descriptionHome {
+    padding-top: 0;
+  }
+  .str-registerHome {
+    margin-bottom: -20px;
+  }
+
+
+    /* Navbar */
+    
+  .page-todo-nav {
+    margin-left: 0px;
+  }
+
+  /* Login Page */
+
+.myFormLog { /*classe condivisa con Register Page*/
+  background-color: rgba(255,255,255,0.8) !important;
+}
+.sfondoLog { /*classe condivisa con Register Page*/
+  width: 100%;
+  height: 79vh;
+  background-size: auto 100%;
+  padding: 1rem 0;
+}
+
+
+/* Register Page */
+
+.alertCustom {
+  margin-top: -16px !important;
+  margin-bottom: 5px !important;
+  padding: 0px 13px!important;
+}
+
+
+/* Todo Page */
+
+.sfondoCard {
+  height: 92vh; 
+  background-size: auto 100%;
+  padding-top: 2rem;
+}
+.card-altezza {
+  max-height: 65vh;
+}
+
 }

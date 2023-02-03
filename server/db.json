@@ -1,22 +1,6 @@
 {
   "users": [
     {
-      "id": 2,
-      "firstName": "Davide",
-      "lastName": "D'Agostino",
-      "email": "davide-d.agostino@outlook.com",
-      "password": "$2a$10$pVOZ5prdbxKTzWnCyIaiNeQ/UwLHI.iiPdq.zTFUkqY48J7igBdxK",
-      "role": "user"
-    },
-    {
-      "id": 3,
-      "firstName": "Henry",
-      "lastName": "Vega",
-      "email": "zugemasih@mailinator.com",
-      "password": "$2a$10$QIQE2RVItoMjUYYwzPBCVu26fNDRI39B/hxKKRquPj0joLo.4omuK",
-      "role": "user"
-    },
-    {
       "email": "tafiwo@mailinator.com",
       "password": "$2a$10$gZq4HdSzCw24EICtnWNN9OCNvSZSCKYfApDGd8rtn4eNWttFXjLHu",
       "firstName": "Demetria",
@@ -95,6 +79,16 @@
       "acceptTerms": true,
       "role": "user",
       "id": 11
+    },
+    {
+      "email": "davide-d.agostino@outlook.com",
+      "password": "$2a$10$negDXbQrdLUfYfJnuTX7iOtPq5jwieFLOvXkuWIjWOpiiQn/WMmXi",
+      "firstName": "Davide",
+      "lastName": "D'Agostino",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 12
     }
   ],
   "todos": [

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container, Col, Row, Card } from 'react-bootstrap'
 import todoimg from '../img/todo.png'
 
 export default function Home() {
@@ -7,20 +7,22 @@ export default function Home() {
     <div className=' sfondoHome text-center'>
       <Container>
         <Row>
+        <Col md={5}>
+          <h1 className='mt-5 mb-5 str-descriptionHome'>Tieni <b className='b-txt-Home'>tutto sotto controllo</b> <span className='b-txt-Home'>con</span> <b className='b-txt-Home'>TryList App</b>, crea la tua <b>lista To-do</b> e di addio alle dimenticanze!</h1>
+          <h2 className='str-registerHome'><a href="/register">Registrati ora!</a></h2>
+        </Col>
         <Col md={7}>
             <Container>
               <div className='my-4'>
-              <img src={todoimg} className="mt-5 imgHome" alt="img home" />
+                <img src={todoimg} className="mt-5 imgHome" alt="img home" />
               </div>
             </Container>
         </Col>
-        <Col md={5}>
-        <h1 className='mt-5 mb-5'  style={{paddingTop:"10%"}}>Tieni <b style={{color:"#f39c12"}}>tutto sotto controllo</b> con <b style={{color:"#f39c12"}}>TryList App</b>, crea la tua <b>lista To-do</b> e di addio alle dimenticanze!</h1>
-        <h2>Registrati ora!</h2>
-        </Col>
-        
         </Row>
       </Container>
+      <Card.Footer className='fixed-bottom'>
+        <small className="text-muted">Website developed by Davide D'Agostino ©</small>
+      </Card.Footer>
     </div>
   )
 }

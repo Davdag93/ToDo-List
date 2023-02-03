@@ -28,7 +28,7 @@ function userLogout() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/todos" className='nav-link mx-5'>Todo</Link>
+            <Link to="/todos" className='nav-link page-todo-nav'>Todo</Link>
           </Nav>
           {!isLoggedIn ? 
             <Nav>
