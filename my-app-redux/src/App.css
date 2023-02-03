@@ -9,8 +9,8 @@
 
 .sfondoCard {
   width: 100%;
-  height: 92vh;
-  background-image: url("../src/img/sfondopage.jpeg");
+  height: 92vh; 
+  background-image: url("../src/img/sfondopage.jpeg"); 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% auto;
@@ -77,4 +77,14 @@
 
 .privacy {
   text-decoration: none;
+}
+.imgHome {
+  width: 90%;
+  height: 350px;
+  border-radius: 10px;
+  background-color:rgba(255,255,255,0.1)
+}
+.imgHome img {
+  width: 100%;
+  height: 100%;
 }

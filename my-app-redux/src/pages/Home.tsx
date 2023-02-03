@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'react-bootstrap'
-import bosco from '../img/sfondopage.jpeg'
+import todoimg from '../img/todo.png'
 
 export default function Home() {
   return (
@@ -9,8 +9,8 @@ export default function Home() {
         <Row>
         <Col md={7}>
             <Container>
-              <div>
-              <img src={bosco} className="mt-5" alt="img home" style={{width: "90%", height: "420px",borderRadius:"30px", backgroundColor:"rgba(255,255,255,0.1)"}}/>
+              <div className='my-4'>
+              <img src={todoimg} className="mt-5 imgHome" alt="img home" />
               </div>
             </Container>
         </Col>
