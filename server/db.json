@@ -1,90 +1,126 @@
 {
   "users": [
     {
-      "email": "davide-d.agostino@outlook.com",
-      "password": "$2a$10$pVOZ5prdbxKTzWnCyIaiNeQ/UwLHI.iiPdq.zTFUkqY48J7igBdxK",
+      "id": 2,
       "firstName": "Davide",
       "lastName": "D'Agostino",
-      "city": "PALERMO",
-      "age": "29",
-      "id": 2
+      "email": "davide-d.agostino@outlook.com",
+      "password": "$2a$10$pVOZ5prdbxKTzWnCyIaiNeQ/UwLHI.iiPdq.zTFUkqY48J7igBdxK",
+      "role": "user"
     },
     {
-      "email": "zugemasih@mailinator.com",
-      "password": "$2a$10$QIQE2RVItoMjUYYwzPBCVu26fNDRI39B/hxKKRquPj0joLo.4omuK",
+      "id": 3,
       "firstName": "Henry",
       "lastName": "Vega",
-      "city": "Cum temporibus aliqu",
-      "age": "55",
-      "id": 3
+      "email": "zugemasih@mailinator.com",
+      "password": "$2a$10$QIQE2RVItoMjUYYwzPBCVu26fNDRI39B/hxKKRquPj0joLo.4omuK",
+      "role": "user"
+    },
+    {
+      "email": "tafiwo@mailinator.com",
+      "password": "$2a$10$gZq4HdSzCw24EICtnWNN9OCNvSZSCKYfApDGd8rtn4eNWttFXjLHu",
+      "firstName": "Demetria",
+      "lastName": "Mcneil",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 4
+    },
+    {
+      "email": "bexehubusi@mailinator.com",
+      "password": "$2a$10$VPV.y74FhO8.nlcHBlnQB.gNHkewPeK1Bv/98Qd8soAg0cG8.2DKG",
+      "firstName": "Arsenio",
+      "lastName": "Ruiz",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 5
+    },
+    {
+      "email": "nubomu@mailinator.com",
+      "password": "$2a$10$Ty5zhik8PcbPx/guzJPQSuTxhepCw4eHLa0j6i3spG3uqDpMq5Zwm",
+      "firstName": "Garth",
+      "lastName": "Decker",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 6
+    },
+    {
+      "email": "jyqewuvavy@mailinator.com",
+      "password": "$2a$10$bU9wrYDFMzrO7F8FOhM8sO4AGxnwx3.ylMrd6YxLbwJR44F8FC2Y.",
+      "firstName": "Shelby",
+      "lastName": "Francis",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 7
+    },
+    {
+      "email": "gekafo@mailinator.com",
+      "password": "$2a$10$inmHu14e8FyYkpukPGXJ.uH1/bRIinGbJgscreuiZMECBlzqthIyi",
+      "firstName": "Jessica",
+      "lastName": "Melton",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 8
+    },
+    {
+      "email": "wuhyriwi@mailinator.com",
+      "password": "$2a$10$eXgVqiaYP/ZeTb6Lvdn/zuDU0lTAciqPRyxGRyJsDHX.1hb05w0wG",
+      "firstName": "Neve",
+      "lastName": "Wood",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 9
+    },
+    {
+      "email": "haxopyde@mailinator.com",
+      "password": "$2a$10$mUzzy13vuVp0KaNBpyPASuUdCGXyGXoxybpt1aiuZsMq5evYpY5P2",
+      "firstName": "James",
+      "lastName": "Bailey",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 10
+    },
+    {
+      "email": "mehe@mailinator.com",
+      "password": "$2a$10$B1H.CbfD0W2zD/mIJR16tO7m7EDva4LCuwfavm4RASJpEzEASxuEm",
+      "firstName": "Dai",
+      "lastName": "Talley",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 11
     }
   ],
   "todos": [
     {
-      "txt": "10",
+      "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel",
       "completed": "",
-      "data": "29/01/2023",
-      "id": 1
-    },
-    {
-      "txt": "11",
-      "completed": "",
-      "data": "29/01/2023",
+      "data": "30/01/2023",
       "id": 2
     },
     {
-      "txt": "12",
+      "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
       "completed": "",
-      "data": "29/01/2023",
+      "data": "3/11/2023",
       "id": 3
     },
     {
-      "txt": "13",
+      "txt": " Maxime mollitia, molestiae",
       "completed": "",
-      "data": "29/01/2023",
+      "data": "3/11/2023",
       "id": 4
     },
     {
-      "txt": "14",
+      "txt": "Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum l",
       "completed": "",
-      "data": "29/01/2023",
+      "data": "3/11/2023",
       "id": 5
-    },
-    {
-      "txt": "12121",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 6
-    },
-    {
-      "txt": "12",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 7
-    },
-    {
-      "txt": "121",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 8
-    },
-    {
-      "txt": "212",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 9
-    },
-    {
-      "txt": "112",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 10
-    },
-    {
-      "txt": "12",
-      "completed": "",
-      "data": "29/01/2023",
-      "id": 11
     }
   ]
 }

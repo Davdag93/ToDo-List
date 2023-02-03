@@ -3,13 +3,14 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { AppThunk, RootState } from '../../app/store';
 
 export interface User {
-    id?: number,
-    firstname: string,
-    lastname: string,
-    age: number,
-    email: string,
-    password?: string,
-    role: string
+  id?: number,
+  firstName: string,
+  lastName: string,
+  email: string,
+  password: string,
+  confirmPassword: string,
+  acceptTerms: boolean,
+  role: string
 }
 
 interface UserState {
@@ -41,6 +42,8 @@ export const setIsLoggedIn = (isLoggedIn: boolean): PayloadAction<boolean> => ({
     localStorage.removeItem("user");
     dispatch(setIsLoggedIn(false));
   };
+
+
 
 export const userLogin_slice = createSlice(
     {

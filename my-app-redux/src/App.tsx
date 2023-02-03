@@ -20,7 +20,7 @@ function App() {
           
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/todos' element={<TodosPage />} /* {isLoggedIn ? <TodosPage /> : <Navigate to='/login' />} */ />
+          <Route path='/todos' element= {isLoggedIn ? <TodosPage /> : <Navigate to='/login' />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<Signup />} />
         </Routes>

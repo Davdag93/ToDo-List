@@ -24,11 +24,11 @@ function userLogout() {
   return (
     <Navbar className="nav-cust" collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Link to="/" className='nav-link logo'>List App</Link>
+        <Link to="/" className='nav-link logo fs-5'>TryList App</Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Link to="/todos" className='nav-link'>Todo</Link>
+            <Link to="/todos" className='nav-link mx-5'>Todo</Link>
           </Nav>
           {!isLoggedIn ? 
             <Nav>

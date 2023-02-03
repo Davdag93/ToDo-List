@@ -37,8 +37,8 @@ export default function Todolist() {
               <span className={t.completed}>{t.txt}</span>
             </Col>
               <span>
-                <Button variant='success' className='btn-sm mx-1' onClick={() => dispatch(completeTodo(t))}><CheckSquareFill /></Button>
-                <Button variant='danger' className='btn-sm mx-1'  onClick={() => t.id ? dispatch(deleteTodo(t.id)) : false}><TrashFill /></Button>
+                <Button variant='success' className='btn-sm mx-1 mb-1' onClick={() => dispatch(completeTodo(t))}><CheckSquareFill /></Button>
+                <Button variant='danger' className='btn-sm mx-1 mb-1'  onClick={() => t.id ? dispatch(deleteTodo(t.id)) : false}><TrashFill /></Button>
               </span>
             </ListGroup.Item>
           ))}
