@@ -97,6 +97,10 @@
 .page-todo-nav {
   margin-left: 30px;
 }
+.name-profile-nav {
+  margin-right: 20px;
+}
+
 
 /* Register Page */
 
@@ -109,6 +113,17 @@
 .privacy {
   text-decoration: none;
 }
+
+/* Footer */
+
+.link-ft {
+  text-decoration: none;
+  color: rgb(114, 114, 114);
+}
+.link-ft:hover {
+  color:rgb(184, 181, 181)
+}
+
 
 
 /*SMARTPHONE*/
@@ -139,6 +154,10 @@
   .page-todo-nav {
     margin-left: 0px;
   }
+  .name-profile-nav {
+    margin-right: 0px;
+  }
+  
 
   /* Login Page */
 

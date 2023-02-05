@@ -21,7 +21,7 @@ export default function Home() {
         </Row>
       </Container>
       <Card.Footer className='fixed-bottom'>
-        <small className="text-muted">Website developed by Davide D'Agostino ©</small>
+        <small className="text-muted">Website developed by <a className="link-ft" href="https://github.com/Davdag93" rel="noreferrer" target="_blank"> Davide D'Agostino</a> © 2023</small>
       </Card.Footer>
     </div>
   )

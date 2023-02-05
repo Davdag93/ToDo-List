@@ -8,6 +8,7 @@ import { selectIsLoggedIn } from './features/login/userLoginSlice';
 import NavbarComp from './features/navbar/NavbarComp';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 function App() {
 
@@ -20,9 +21,10 @@ function App() {
           
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='/todos' element= {isLoggedIn ? <TodosPage /> : <Navigate to='/login' />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/register' element={<Signup />} />
+          <Route path='/todos' element= {isLoggedIn ? <TodosPage/> : <Navigate to='/login' />} />
+          <Route path='/login' element={<LoginPage/>} />
+          <Route path='/register' element={<Signup/>} />
+          <Route path='/profile' element={<Profile/>} />
         </Routes>
       </BrowserRouter>
      

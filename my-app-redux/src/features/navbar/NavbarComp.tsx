@@ -5,20 +5,24 @@ import { useAppDispatch } from '../../app/hooks';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../app/hooks';
 import { selectIsLoggedIn, logout } from '../login/userLoginSlice';
+import { selectUserLogin } from '../login/userLoginSlice';
 
 function NavbarComp() {
+ 
+  const users = useAppSelector(selectUserLogin); 
 
+  const name = users?.user?.firstName;  
+ 
   const navigate = useNavigate();
 
   const dispatch = useAppDispatch();
 
-  const isLoggedIn = useAppSelector(selectIsLoggedIn)
+  const isLoggedIn = useAppSelector(selectIsLoggedIn);
 
-
-function userLogout() {
-  dispatch(logout())
-  navigate('/login')
-}
+  function userLogout() {
+    dispatch(logout())
+    navigate('/login')
+  }
 
 
   return (
@@ -37,6 +41,7 @@ function userLogout() {
             </Nav> 
             : 
             <Nav>
+                <Nav.Link className='nav-link name-profile-nav'>Hello {name}</Nav.Link>
                 <Nav.Link className="nav-link" onClick={userLogout}>Logout</Nav.Link>
             </Nav> 
           }  
