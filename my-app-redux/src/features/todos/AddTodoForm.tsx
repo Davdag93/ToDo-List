@@ -3,7 +3,8 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {  Button, Col, Row } from 'react-bootstrap';
 import { addTodo, Todo } from './todosSlice';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { selectUserLogin } from '../login/userLoginSlice';
 
 const TodosSchema = Yup.object().shape({
     txt: Yup.string()
@@ -14,6 +15,9 @@ const TodosSchema = Yup.object().shape({
 
 export default function AddTodoForm() {
   const dispatch = useAppDispatch();
+  const users = useAppSelector(selectUserLogin); 
+  const id_user = users?.user?.id || ""; 
+
   return (
     <Formik
        initialValues={{
@@ -24,9 +28,10 @@ export default function AddTodoForm() {
          // same shape as initial values
          const data = new Date();
          let obj: Todo = {
+            id_user: id_user,
             txt: values.txt,
             completed: "",
-            data: data.getDate() + '/' + data.getMonth()+1 + '/' + data.getFullYear()
+            data: data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear()
           };
          dispatch(addTodo(obj));
           resetForm();

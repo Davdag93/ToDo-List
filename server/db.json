@@ -93,28 +93,32 @@
   ],
   "todos": [
     {
-      "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel",
+      "id_user": 12,
+      "txt": "ciao",
       "completed": "",
-      "data": "30/01/2023",
+      "data": "5/11/2023",
+      "id": 1
+    },
+    {
+      "id_user": 12,
+      "txt": "sadssa",
+      "completed": "",
+      "data": "5/11/2023",
       "id": 2
     },
     {
-      "txt": "Lorem ipsum dolor sit amet consectetur adipisicing elit. ",
+      "id_user": 11,
+      "txt": "asdsad",
       "completed": "",
-      "data": "3/11/2023",
+      "data": "5/11/2023",
       "id": 3
     },
     {
-      "txt": " Maxime mollitia, molestiae",
+      "id_user": 11,
+      "txt": "ciao ",
       "completed": "",
-      "data": "3/11/2023",
+      "data": "17/2/2023",
       "id": 4
-    },
-    {
-      "txt": "Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum l",
-      "completed": "",
-      "data": "3/11/2023",
-      "id": 5
     }
   ]
 }

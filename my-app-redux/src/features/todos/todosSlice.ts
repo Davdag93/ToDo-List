@@ -4,6 +4,7 @@ import { RootState } from "../../app/store";
 
 export interface Todo {
     id?: number,
+    id_user: number,
     txt: string,
     completed: string,
     data: string,
@@ -21,8 +22,8 @@ const initialState: TodosState = {
     todolist: []
 }
 
-export const getAllTodos = createAsyncThunk("todos/fetchTodos", () => {
-    return axios.get(process.env.REACT_APP_URL_API + 'todos').then((response) => {
+export const getAllTodos = createAsyncThunk("todos/fetchTodos", (id_user:number) => {
+    return axios.get(process.env.REACT_APP_URL_API + 'todos?id_user=' + id_user).then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
         return response.data as Todo[]
     }).catch((error) => {throw Error(error.message)})
@@ -68,7 +69,7 @@ export const todos_slice = createSlice(
                   })
                   .addCase(getAllTodos.fulfilled, (state, action) => {
                     state.loading = false; 
-                    state.todolist = action.payload
+                    state.todolist =  action.payload 
                   })
                   .addCase(deleteTodo.rejected, (state, action) => {
                     state.error = action.error.message
@@ -91,39 +92,6 @@ export const todos_slice = createSlice(
                   })
               },
         }
-        /* 
-            JS version
-            extraReducers: {
-                [getAllTodos.pending]: state => {
-                    state.loading = true},
-                [getAllTodos.rejected]: (state, action) => {
-                    state.loading = false; 
-                    state.error = action.error.message},
-                [getAllTodos.fulfilled]:(state, action) => {
-                    state.loading = false; 
-                    state.todolist = action.payload
-                },
-                [deleteTodo.rejected]: (state, action) => {
-                state.error = action.error.message
-                },
-                [deleteTodo.fulfilled]:(state, action) => {
-                    state.todolist = state.todolist.filter(todo => todo.id !== action.payload)
-                },
-                [completeTodo.rejected]: (state, action) => {
-                state.error = action.error.message
-                },
-                [completeTodo.fulfilled]:(state, action) => {
-                    const index = state.todolist.findIndex(todo => todo.id === action.payload.id)
-                    state.todolist[index] = action.payload
-                },
-                [addTodo.rejected]: (state, action) => {
-                state.error = action.error.message
-                },
-                [addTodo.fulfilled]: (state, action) => {
-                    state.todolist = [...state.todolist, action.payload]
-                },
-            } 
-        */
     
 )
 

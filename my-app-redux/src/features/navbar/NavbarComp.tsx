@@ -11,7 +11,7 @@ function NavbarComp() {
  
   const users = useAppSelector(selectUserLogin); 
 
-  const name = users?.user?.firstName;  
+  const name = users?.user?.firstName || "";  
  
   const navigate = useNavigate();
 

@@ -29,10 +29,6 @@ const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 
 export const store = configureStore({
-  /* reducer: {
-    todos: todosReducer,
-    userLogin: userLoginReducer,
-  }, */
   reducer: persistedReducer,
   middleware: [thunk]
 });
