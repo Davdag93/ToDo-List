@@ -46,7 +46,10 @@ addictions used :
     "yup": "^0.32.11"
     "json-server": "^0.17.1",
     "json-server-auth": "^2.1.0"
-    
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+    "nodemon": "^2.0.22"
     
     Website developed by Davide D'Agostino
     https://github.com/Davdag93
