@@ -89,6 +89,16 @@
       "acceptTerms": true,
       "role": "user",
       "id": 12
+    },
+    {
+      "email": "fubate@mailinator.com",
+      "password": "$2a$10$1PPdtK5NzlROqSaVdtEa6.gIkx7eR1.xUooTuXUNcdzWBg00CltI6",
+      "firstName": "Moana",
+      "lastName": "Owen",
+      "confirmPassword": "Pa$$w0rd!",
+      "acceptTerms": true,
+      "role": "user",
+      "id": 13
     }
   ],
   "todos": [
@@ -126,6 +136,20 @@
       "completed": "",
       "data": "17/2/2023",
       "id": 5
+    },
+    {
+      "id_user": 13,
+      "txt": "pane ",
+      "completed": "",
+      "data": "20/3/2023",
+      "id": 6
+    },
+    {
+      "id_user": 13,
+      "txt": "acqua ",
+      "completed": "",
+      "data": "20/3/2023",
+      "id": 7
     }
   ]
 }
