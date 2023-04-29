@@ -2,14 +2,17 @@
 
 require('dotenv').config()
 const express = require('express')
+const mongoose = require('mongoose')
 const usersRoutes = require('./routes/utenti')
 const app = express()
 
 
-
+//middleware
+// Per renderlo accessibile a tutte le richieste va inserito prima nel codice 
+//QUESTO MIDDLEWARE ci rende accessibile tutto quello che passa come richiesta ad esempio per poter usare "req.body" in una richiesta POST 
+app.use(express.json())
 
 // QUESTO E' UN middleware globale (di prova) CHE SI ATTIVERA' PER OGNI RICHIESTA CHE ARRIVA DAL URL (stampando in console la path successiva al numero di porta ed il metodo usato {GET/POST/ecc})
-// Per renderlo accessibile a tutte le richieste va inserito prima nel codice 
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
@@ -31,12 +34,25 @@ app.use((req, res, next) => {
 app.use('/api/users', usersRoutes)
 
 
+// Connessione al DB 
+mongoose.connect(process.env.MONGO_URI)
+    .then(() => {
+        // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI SOLO DOPO CHE SI E' COLLEGATO AL DB
+        app.listen(process.env.PORT, () => {
+            console.log('connesso al DB & server attivo sulla porta', process.env.PORT)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+
 
 
 // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI
-app.listen(process.env.PORT, () => {
+
+/* app.listen(process.env.PORT, () => {
     console.log('server attivo sulla porta', process.env.PORT)
-})
+}) */
 
 
 
