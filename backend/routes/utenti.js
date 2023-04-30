@@ -1,4 +1,5 @@
 const express = require('express')
+const User = require('../models/modelUser')
 //Creaiamo un gestore di rotte 
 const router = express.Router()
 
@@ -20,8 +21,33 @@ router.get('/:id', (req, res) => {
 
 
 // POST 
-router.post('/', (req, res) => {
-    res.json("creazione utente")
+router.post('/', async (req, res) => {
+
+    // con req.body prendiamo tutti i dati dai campi 
+    const {
+        email,
+        password,
+        firstName,
+        lastName,
+        confirmPassword,
+        acceptTerms,
+        role
+    } = req.body
+
+    try {
+        const user = await User.create({
+            email,
+            password,
+            firstName,
+            lastName,
+            confirmPassword,
+            acceptTerms,
+            role
+        })
+        res.status(200).json(user)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
 })
 
 
