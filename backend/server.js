@@ -30,12 +30,12 @@ app.use((req, res, next) => {
 
 // Qui inseriamo il collegamento alle rotte presenti nella cartella routes
 //routes 
-//il percorso(path) /api/users sarà frapposto tra "http://localhost:4000/" e la path che inseriremo nelle richieste get/post ecc in routes. esempio: http://localhost:4000/api/users/_id
+//il percorso(path) /api/users sarà frapposto tra "http://localhost:4000" e la path che inseriremo nelle richieste get/post ecc in routes. esempio: http://localhost:4000/api/users/_id
 app.use('/api/users', usersRoutes)
 
 
 // Connessione al DB 
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI_USER)
     .then(() => {
         // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI SOLO DOPO CHE SI E' COLLEGATO AL DB
         app.listen(process.env.PORT, () => {
