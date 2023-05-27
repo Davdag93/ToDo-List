@@ -3,7 +3,6 @@ import axios from "axios";
 import { RootState } from "../../app/store";
 
 export interface Todo {
-    id?: number,
     id_user: number,
     txt: string,
     completed: string,
@@ -23,14 +22,16 @@ const initialState: TodosState = {
 }
 
 export const getAllTodos = createAsyncThunk("todos/fetchTodos", (id_user:number) => {
-    return axios.get(process.env.REACT_APP_URL_API + 'todos?id_user=' + id_user).then((response) => {
+    return axios.get('api/todos/'+id_user)
+    .then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
-        return response.data as Todo[]
+        return response.data 
     }).catch((error) => {throw Error(error.message)})
 })
 
 export const deleteTodo = createAsyncThunk("todos/removeTodo", (id: number) => {
-    return axios.delete(process.env.REACT_APP_URL_API + 'todos/'+id).then((response) => {
+    return axios.delete(process.env.REACT_APP_URL_API + 'todos/'+id)
+    .then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
         return id
     }).catch((error) => {throw Error(error.message)})
@@ -39,7 +40,8 @@ export const deleteTodo = createAsyncThunk("todos/removeTodo", (id: number) => {
 export const completeTodo = createAsyncThunk("todos/completeTodo", (obj: Todo) => {
     let todo = Object.assign({}, obj);
     todo.completed = todo.completed === 'completed' ? '' : 'completed';
-    return axios.patch(process.env.REACT_APP_URL_API + 'todos/'+todo.id, todo).then((response) => {
+    return axios.patch(process.env.REACT_APP_URL_API + 'todos/'+todo.id_user, todo)
+    .then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
         console.log(response);
         return response.data
@@ -47,7 +49,7 @@ export const completeTodo = createAsyncThunk("todos/completeTodo", (obj: Todo) =
 })
 
 export const addTodo = createAsyncThunk("todos/addTodo", (obj: Todo) => {
-    return axios.post(process.env.REACT_APP_URL_API + 'todos/', obj).then(response => {
+    return axios.post('api/todo', obj).then(response => {
         if(response.status !== 201) throw Error(response.statusText)
         return response.data
     }).catch((error) => {throw Error(error.message)})
@@ -75,13 +77,13 @@ export const todos_slice = createSlice(
                     state.error = action.error.message
                   })
                   .addCase(deleteTodo.fulfilled, (state, action) => {
-                    state.todolist = state.todolist.filter(todo => todo.id !== action.payload)
+                    state.todolist = state.todolist.filter(todo => todo.id_user !== action.payload)
                   })
                   .addCase(completeTodo.rejected, (state, action) => {
                     state.error = action.error.message
                   })
                   .addCase(completeTodo.fulfilled, (state, action) => {
-                    const index = state.todolist.findIndex(todo => todo.id === action.payload.id)
+                    const index = state.todolist.findIndex(todo => todo.id_user === action.payload.id)
                     state.todolist[index] = action.payload
                   })
                   .addCase(addTodo.rejected, (state, action) => {
@@ -89,7 +91,7 @@ export const todos_slice = createSlice(
                   })
                   .addCase(addTodo.fulfilled, (state, action) => {
                     state.todolist = [...state.todolist, action.payload]
-                  })
+                  }) 
               },
         }
     

@@ -16,8 +16,8 @@ export default function Todolist() {
   const dispatch = useAppDispatch();
   
   const users = useAppSelector(selectUserLogin); 
-  const id_user:number = users?.user?.id || ""; 
-
+  const id_user:number = users?.user?._id || ""; 
+  
   useEffect(() => {
     dispatch(getAllTodos(id_user));
   }, [dispatch, id_user]);
@@ -46,7 +46,7 @@ export default function Todolist() {
             </Col>
               <span>
                 <Button variant='success' className='btn-sm mx-1 mb-1' onClick={() => dispatch(completeTodo(t))}><CheckSquareFill /></Button>
-                <Button variant='danger' className='btn-sm mx-1 mb-1'  onClick={() => t.id ? dispatch(deleteTodo(t.id)) : false}><TrashFill /></Button>
+                <Button variant='danger' className='btn-sm mx-1 mb-1'  onClick={() => t.id_user ? dispatch(deleteTodo(t.id_user)) : false}><TrashFill /></Button>
               </span>
           
             </ListGroup.Item>

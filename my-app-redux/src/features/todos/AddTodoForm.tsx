@@ -1,4 +1,3 @@
-import React from 'react'
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {  Button, Col, Row } from 'react-bootstrap';
@@ -16,7 +15,7 @@ const TodosSchema = Yup.object().shape({
 export default function AddTodoForm() {
   const dispatch = useAppDispatch();
   const users = useAppSelector(selectUserLogin); 
-  const id_user = users?.user?.id || ""; 
+  const id_user = users?.user?._id || ""; 
 
   return (
     <Formik

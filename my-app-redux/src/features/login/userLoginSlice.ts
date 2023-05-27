@@ -3,7 +3,6 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { AppThunk, RootState } from '../../app/store';
 
 export interface User {
-  id?: number,
   firstName: string,
   lastName: string,
   email: string,
@@ -26,12 +25,13 @@ const initialState: UserState = {
 }
 
 
-export const getUserLogin = createAsyncThunk("user/getuserLogin", (obj: {email: string, password: string }) => {
-    return axios.post(process.env.REACT_APP_URL_API + 'login/', obj).then( response => {
+ export const getUserLogin = createAsyncThunk("user/getuserLogin", (obj: {email: string, password: string }) => {
+    return axios.post('api/users/login', obj).then( response => {
         if(response.status !== 200) throw Error(response.statusText)
         return response.data
     }).catch(error => {throw Error(error.message)})
-})
+}) 
+
 
 export const setIsLoggedIn = (isLoggedIn: boolean): PayloadAction<boolean> => ({
     type: "userLogin/setIsLoggedIn",

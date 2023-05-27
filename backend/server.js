@@ -4,8 +4,8 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const usersRoutes = require('./routes/utenti')
+const todoRoutes = require('./routes/todo')
 const app = express()
-
 
 //middleware
 // Per renderlo accessibile a tutte le richieste va inserito prima nel codice 
@@ -19,7 +19,6 @@ app.use((req, res, next) => {
 })
 
 
-
 // Questo è un test veloce per testare che il server funzioni
 // QUI INDICHIAMO IL PERCORSO URL SU CUI ESSERE ATTIVO CON LA SOTTOSTANTE RICHIESTA GET
 /* app.get('/', (req, res) => {
@@ -31,11 +30,11 @@ app.use((req, res, next) => {
 // Qui inseriamo il collegamento alle rotte presenti nella cartella routes
 //routes 
 //il percorso(path) /api/users sarà frapposto tra "http://localhost:4000" e la path che inseriremo nelle richieste get/post ecc in routes. esempio: http://localhost:4000/api/users/_id
-app.use('/api/users', usersRoutes)
+app.use('/api', usersRoutes, todoRoutes)
 
 
 // Connessione al DB 
-mongoose.connect(process.env.MONGO_URI_USER)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI SOLO DOPO CHE SI E' COLLEGATO AL DB
         app.listen(process.env.PORT, () => {
@@ -45,6 +44,7 @@ mongoose.connect(process.env.MONGO_URI_USER)
     .catch((error) => {
         console.log(error)
     })
+
 
 
 

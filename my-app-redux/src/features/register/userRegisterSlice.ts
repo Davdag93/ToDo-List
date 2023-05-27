@@ -30,7 +30,7 @@ const initialState: RegisterState = {
 //AZIONE
 
 export const saveUser = createAsyncThunk("user/userRegister",(obj:RegisterUser) => {
-  return axios.post(process.env.REACT_APP_URL_API + 'users/', obj).then( response => {
+  return axios.post('api/users/register', obj).then( response => {
     if(response.status !== 200) throw Error(response.statusText)
     return console.log(response.data)
 }).catch(error => {throw Error(error.message)})
