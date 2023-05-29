@@ -1,7 +1,7 @@
 import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {  Button, Col, Row } from 'react-bootstrap';
-import { addTodo, Todo } from './todosSlice';
+import { addTodo, getAllTodos, Todo } from './todosSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { selectUserLogin } from '../login/userLoginSlice';
 
@@ -32,8 +32,10 @@ export default function AddTodoForm() {
             completed: "",
             data: data.getDate() + '/' + (data.getMonth()+1) + '/' + data.getFullYear()
           };
-         dispatch(addTodo(obj));
-          resetForm();
+          dispatch(addTodo(obj)).then(() => {
+            dispatch(getAllTodos(id_user));
+            resetForm();
+          });
        }}
      >
        {({ errors, touched }) => (
