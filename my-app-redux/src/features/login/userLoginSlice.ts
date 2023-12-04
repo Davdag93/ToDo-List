@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { AppThunk, RootState } from '../../app/store';
 
+const URL= "https://todo-list-app-davdag.netlify.app/login" 
 export interface User {
   firstName: string,
   lastName: string,
@@ -26,7 +27,7 @@ const initialState: UserState = {
 
 
  export const getUserLogin = createAsyncThunk("user/getuserLogin", (obj: {email: string, password: string }) => {
-    return axios.post('api/users/login', obj).then( response => {
+    return axios.post(URL+'api/users/login', obj).then( response => {
         if(response.status !== 200) throw Error(response.statusText)
         return response.data
     }).catch(error => {throw Error(error.message)})
