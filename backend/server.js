@@ -49,11 +49,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI
-
+/*
 app.listen(process.env.PORT || 3000, () => {
     console.log('server attivo sulla porta', process.env.PORT)
 }) 
-
+*/
 
 
 
