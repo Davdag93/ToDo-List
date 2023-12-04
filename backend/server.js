@@ -6,6 +6,7 @@ const mongoose = require('mongoose')
 const usersRoutes = require('./routes/utenti')
 const todoRoutes = require('./routes/todo')
 const app = express()
+const cors = require('cors');
 
 //middleware
 // Per renderlo accessibile a tutte le richieste va inserito prima nel codice 
