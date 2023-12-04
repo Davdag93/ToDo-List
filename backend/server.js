@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 // Qui inseriamo il collegamento alle rotte presenti nella cartella routes
 //routes 
 //il percorso(path) /api/users sarà frapposto tra "http://localhost:4000" e la path che inseriremo nelle richieste get/post ecc in routes. esempio: http://localhost:4000/api/users/_id
-app.use('/api', usersRoutes, todoRoutes)
+app.use('https://todo-list-app-davdag.netlify.app/', usersRoutes, todoRoutes)
 
 
 // Connessione al DB 
