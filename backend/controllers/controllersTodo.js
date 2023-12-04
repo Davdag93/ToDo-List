@@ -41,9 +41,24 @@ const createTodo = async (req, res) => {
 } 
 
 
+const modTodo = async (req, res) => {
+  const { id } = req.params;
+  const { completed } = req.body;
 
+  try {
+    const todo = await Todo.findByIdAndUpdate(id, { completed }, { new: true });
+    if (!todo) {
+      return res.status(404).json({ error: 'Todo not found' });
+    }
+    console.log('Updated', todo);
+    res.json(todo);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 module.exports = {
     getTodos,
-    createTodo
+    createTodo,
+    modTodo
 }

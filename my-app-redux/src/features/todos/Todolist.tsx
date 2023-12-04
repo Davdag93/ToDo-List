@@ -23,7 +23,6 @@ export default function Todolist() {
   }, [dispatch, id_user]);
 
 
-
   return (
     <Card.Body className='text-center'>
         {loading &&   
@@ -46,7 +45,7 @@ export default function Todolist() {
             </Col>
               <span>
                 <Button variant='success' className='btn-sm mx-1 mb-1' onClick={() => dispatch(completeTodo(t))}><CheckSquareFill /></Button>
-                <Button variant='danger' className='btn-sm mx-1 mb-1'  onClick={() => t.id_user ? dispatch(deleteTodo(t.id_user)) : false}><TrashFill /></Button>
+                <Button variant='danger' className='btn-sm mx-1 mb-1'  onClick={() => t._id ? dispatch(deleteTodo(t._id)) : false}><TrashFill /></Button>
               </span>
           
             </ListGroup.Item>

@@ -27,6 +27,7 @@ export default function AddTodoForm() {
          // same shape as initial values
          const data = new Date();
          let obj: Todo = {
+            _id: "",
             id_user: id_user,
             txt: values.txt,
             completed: "",
