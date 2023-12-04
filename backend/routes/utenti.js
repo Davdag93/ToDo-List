@@ -28,7 +28,7 @@ router.get('/users/:id', getUser)
 router.post('/users/register', createUser)
 
 // POST login
-router.post('/users/login', loginUser)
+router.post('/users', loginUser)
 
 // DELETE user
 router.delete('/users/delete/:id', deleteUser)
