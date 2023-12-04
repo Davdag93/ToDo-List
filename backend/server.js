@@ -12,6 +12,16 @@ const app = express()
 //QUESTO MIDDLEWARE ci rende accessibile tutto quello che passa come richiesta ad esempio per poter usare "req.body" in una richiesta POST 
 app.use(express.json())
 
+
+app.use(cors({
+    origin: 'https://todo-list-app-davdag.netlify.app', // Sostituisci con l'URL effettivo del tuo frontend su Netlify
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // Consente l'invio dei cookie
+    optionsSuccessStatus: 204, // Imposta il codice di risposta per le richieste Preflight su 204
+  }));
+  
+
+
 // QUESTO E' UN middleware globale (di prova) CHE SI ATTIVERA' PER OGNI RICHIESTA CHE ARRIVA DAL URL (stampando in console la path successiva al numero di porta ed il metodo usato {GET/POST/ecc})
 app.use((req, res, next) => {
     console.log(req.path, req.method)
