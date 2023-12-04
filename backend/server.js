@@ -13,12 +13,7 @@ const app = express()
 app.use(express.json())
 
 
-app.use(cors({
-    origin: 'https://todo-list-app-davdag.netlify.app', // Sostituisci con l'URL effettivo del tuo frontend su Netlify
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true, // Consente l'invio dei cookie
-    optionsSuccessStatus: 204, // Imposta il codice di risposta per le richieste Preflight su 204
-  }));
+app.use(cors());
   
 
 
