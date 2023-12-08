@@ -19,7 +19,7 @@ const router = express.Router()
 router.get('/users/', getUsers)
 
 // POST login
-router.get('/users/login', loginUser)
+router.post('/users/login', loginUser)
 
 // GET:id prende un singolo utente dal DB 
 //:id indica che è un valore che deve ricevere in un secondo momento

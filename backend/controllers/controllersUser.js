@@ -45,30 +45,33 @@ const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await User.findOne({ email, password });
+      console.log(`Tentativo di login con email: ${email}`);
+      const user = await User.findOne({ email });
 
-    if (!user) {
-      console.log('Credenziali non valide. Utente non trovato.');
-      return res.status(401).json({ message: 'Credenziali non valide' });
-    }
+      if (!user) {
+          console.log('Utente non trovato. Credenziali non valide.');
+          return res.status(401).json({ message: 'Credenziali non valide' });
+      }
 
-    // Confronto non crittografato delle password
-    if (user.password !== password) {
-      console.log('Credenziali non valide. Password non corrispondente.');
-      return res.status(401).json({ message: 'Credenziali non valide' });
-    } 
+      // Confronto crittografato delle password
+      const match = await bcrypt.compare(password, user.password);
 
-    console.log('Login avvenuto con successo:', user);
+      if (!match) {
+          console.log('Password non corrispondente. Credenziali non valide.');
+          return res.status(401).json({ message: 'Credenziali non valide' });
+      }
 
-    // Dentro la tua funzione loginUser
-    const secretKey = process.env.SECRET_KEY || 'chiave_segreta_di_default';
-    const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
+      console.log('Login avvenuto con successo:', user);
 
-    // Invia il token come parte della risposta
-    res.status(200).json({ user, token });
+      // Dentro la tua funzione loginUser
+      const secretKey = process.env.SECRET_KEY || 'chiave_segreta_di_default';
+      const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
+
+      // Invia il token come parte della risposta
+      res.status(200).json({ user, token });
   } catch (error) {
-    console.error('Errore durante il login:', error);
-    res.status(500).json({ message: 'Errore del server' });
+      console.error('Errore durante il login:', error);
+      res.status(500).json({ message: 'Errore del server' });
   }
 };
 
