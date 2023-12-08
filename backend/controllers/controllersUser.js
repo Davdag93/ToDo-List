@@ -57,7 +57,11 @@ const loginUser = async (req, res) => {
         return res.status(401).json({ message: 'Credenziali non valide' });
       } 
 
-      res.status(200).json({ user });
+      // Genera un token JWT valido per l'utente
+      const token = jwt.sign({ userId: user._id }, 'secretKey', { expiresIn: '1h' });
+
+      // Invia il token come parte della risposta
+      res.status(200).json({ user, token });
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: 'Errore del server' });
