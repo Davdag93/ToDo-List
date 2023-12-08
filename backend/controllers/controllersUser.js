@@ -1,7 +1,8 @@
 const User = require('../models/modelUser')
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt'); 
 const mongoose = require('mongoose')
-
+const jwt = require('jsonwebtoken');
+const validator = require('validator');
 
 // GET tutti gli users
  const getUsers = async (req, res) => { 
@@ -40,33 +41,37 @@ const getUser = async (req, res) => {
 
 // POST login 
 const loginUser = async (req, res) => {
-    console.log("Richiesta post ricevuta:", req.body); 
-    const { email, password } = req.body;
-  
-    try {
-      const user = await User.findOne({ email, password });
-  
-      if (!user) {
-        return res.status(401).json({ message: 'Credenziali non valide' });
-      }
-  
-      // Questo serve per controllare se la password (quando crittografata) combacia con quella presente nel DB 
-    const match = await bcrypt.compare(password, user.password);
-  
-      if (!match) {
-        return res.status(401).json({ message: 'Credenziali non valide' });
-      } 
+  console.log("Richiesta post ricevuta:", req.body); 
+  const { email, password } = req.body;
 
-      // Genera un token JWT valido per l'utente
-      const token = jwt.sign({ userId: user._id }, 'secretKey', { expiresIn: '1h' });
+  try {
+    const user = await User.findOne({ email, password });
 
-      // Invia il token come parte della risposta
-      res.status(200).json({ user, token });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Errore del server' });
+    if (!user) {
+      console.log('Credenziali non valide. Utente non trovato.');
+      return res.status(401).json({ message: 'Credenziali non valide' });
     }
-  };
+
+    // Confronto non crittografato delle password
+    if (user.password !== password) {
+      console.log('Credenziali non valide. Password non corrispondente.');
+      return res.status(401).json({ message: 'Credenziali non valide' });
+    } 
+
+    console.log('Login avvenuto con successo:', user);
+
+    // Dentro la tua funzione loginUser
+    const secretKey = process.env.SECRET_KEY || 'chiave_segreta_di_default';
+    const token = jwt.sign({ userId: user._id }, secretKey, { expiresIn: '1h' });
+
+    // Invia il token come parte della risposta
+    res.status(200).json({ user, token });
+  } catch (error) {
+    console.error('Errore durante il login:', error);
+    res.status(500).json({ message: 'Errore del server' });
+  }
+};
+
 
 // POST carico di un nuovo user
 const createUser = async (req, res) => {
@@ -85,12 +90,15 @@ const createUser = async (req, res) => {
             if (password !== confirmPassword) {
                 return res.status(400).json({ error: "Password e Conferma password non corrispondono" })
             }
-    
+            if (!validator.isEmail(email)) {
+              return res.status(400).json({ error: 'L\'indirizzo email non è valido' });
+          }
         // aggiunge il documento al DB 
         try {
+            const hashedPassword = await bcrypt.hash(password, 10); // 10 è il numero di rounds per la crittografia
             const user = await User.create({
                 email,
-                password,
+                password: hashedPassword,
                 firstName,
                 lastName,
                 confirmPassword,

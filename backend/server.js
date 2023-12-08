@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 // Questo è un test veloce per testare che il server funzioni
 // QUI INDICHIAMO IL PERCORSO URL SU CUI ESSERE ATTIVO CON LA SOTTOSTANTE RICHIESTA GET
-/* app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.json({mssg: 'Welcome'})
 }) */
 

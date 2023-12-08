@@ -18,6 +18,8 @@ const router = express.Router()
 // GET prende tutti gli utenti dal DB 
 router.get('/users/', getUsers)
 
+// POST login
+router.get('/users/login', loginUser)
 
 // GET:id prende un singolo utente dal DB 
 //:id indica che è un valore che deve ricevere in un secondo momento
@@ -27,8 +29,7 @@ router.get('/users/:id', getUser)
 // POST register
 router.post('/users/register', createUser)
 
-// POST login
-router.post('/users/login', loginUser)
+
 
 // DELETE user
 router.delete('/users/delete/:id', deleteUser)
