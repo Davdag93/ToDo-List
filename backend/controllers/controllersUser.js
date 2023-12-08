@@ -40,7 +40,7 @@ const getUser = async (req, res) => {
 
 // POST login 
 const loginUser = async (req, res) => {
-    /* console.log("Richiesta post ricevuta:", req.body); */
+    console.log("Richiesta post ricevuta:", req.body); 
     const { email, password } = req.body;
   
     try {
@@ -51,11 +51,11 @@ const loginUser = async (req, res) => {
       }
   
       // Questo serve per controllare se la password (quando crittografata) combacia con quella presente nel DB 
-/*    const match = await bcrypt.compare(password, user.password);
+    const match = await bcrypt.compare(password, user.password);
   
       if (!match) {
         return res.status(401).json({ message: 'Credenziali non valide' });
-      } */
+      } 
 
       res.status(200).json({ user });
     } catch (error) {

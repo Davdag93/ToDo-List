@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { RootState } from "../../app/store";
 
+const url = process.env.REACT_APP_URL_API
 export interface Todo {
     _id: string,
     id_user: number,
@@ -23,7 +24,7 @@ const initialState: TodosState = {
 }
 
 export const getAllTodos = createAsyncThunk("todos/fetchTodos", (id_user:number) => {
-    return axios.get('api/todos/'+id_user)
+    return axios.get(url + 'api/todos/'+id_user)
     .then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
         return response.data 
@@ -31,7 +32,7 @@ export const getAllTodos = createAsyncThunk("todos/fetchTodos", (id_user:number)
 })
 
 export const deleteTodo = createAsyncThunk("todos/removeTodo", (id: string) => {
-    return axios.delete(process.env.REACT_APP_URL_API + 'api/todo/delete/'+ id)
+    return axios.delete(url + 'api/todo/delete/'+ id)
     .then((response) => {
         if(response.status !== 200) throw Error(response.statusText)
         return id
@@ -42,7 +43,7 @@ export const completeTodo = createAsyncThunk("todos/completeTodo", async (todo: 
   const completed = todo.completed === 'completed' ? '' : 'completed';
   
   try {
-    const response = await axios.patch(process.env.REACT_APP_URL_API + 'api/todo/modifica/' + todo._id, { completed });
+    const response = await axios.patch(url + 'api/todo/modifica/' + todo._id, { completed });
     if (response.status !== 200) throw Error(response.statusText);
     console.log(response);
     return response.data;
@@ -54,7 +55,7 @@ export const completeTodo = createAsyncThunk("todos/completeTodo", async (todo: 
 
 
 export const addTodo = createAsyncThunk("todos/addTodo", (obj: Todo) => {
-    return axios.post('api/todo', obj).then(response => {
+    return axios.post(url + 'api/todo', obj).then(response => {
         if(response.status !== 201) throw Error(response.statusText)
         return response.data
     }).catch((error) => {throw Error(error.message)})
