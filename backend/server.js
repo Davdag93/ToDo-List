@@ -19,8 +19,9 @@ app.use(cors());
 
 
 // QUESTO E' UN middleware globale (di prova) CHE SI ATTIVERA' PER OGNI RICHIESTA CHE ARRIVA DAL URL (stampando in console la path successiva al numero di porta ed il metodo usato {GET/POST/ecc})
-app.use((req, res, next) => {
+app.use('/',(req, res, next) => {
     console.log(req.path, req.method)
+    res.json({mssg: "Benevenuto, queste sono l'API dell'app To Do List di Davide D'Agostino"})
     next()
 })
 
