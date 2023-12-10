@@ -43,7 +43,7 @@ app.use('/api', usersRoutes, todoRoutes)
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // INDICHIAMO AD EXPRESS SU CHE PORTA DEVE COLLEGARSI SOLO DOPO CHE SI E' COLLEGATO AL DB
-        app.listen(process.env.PORT || 3000, () => {
+        app.listen(process.env.PORT || 5000, () => {
             console.log('connesso al DB & server attivo sulla porta', process.env.PORT)
         })
     })
